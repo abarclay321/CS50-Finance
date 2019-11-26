@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+           {% for i in numtrans %}
+            <tr>
+            	<td> {{ trans[i]['symbol'] }} </td>
+                <td> {{ trans[i]['name'] }} </td>
+            	<td> {{ trans[i]['quantity'] }} </td>
+                <td> {{ trans[i]['price'] | usd }} </td>
+                <td> {{ trans[i]['timestamp'] }} </td>
+
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+
+    </table>
+
+{% endblock %}
+
+    <!--edited based on staff example-->
